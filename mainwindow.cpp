@@ -27,9 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
     QLabel *label = new QLabel("Lotto", this);  
     label->setAlignment(Qt::AlignCenter);  
     label->setGeometry(300, 0, 180, 80);
-	label->setStyleSheet("QLabel { color : red; }");
-	QFont fontlabel("Arial", 18, QFont::Bold);
-	label->setFont(fontlabel);
+    label->setStyleSheet("QLabel { color : red; }");
+    QFont fontlabel("Arial", 18, QFont::Bold);
+    label->setFont(fontlabel);
     graphicsView = new QGraphicsView(this);
     graphicsView->setGeometry(10, 10, 100, 100);    
     graphicsView->setScene(scene);
@@ -88,23 +88,23 @@ void MainWindow::lottoNumbers()
             if (currentIndex == numbers.size() - 1) {
                circle = scene->addEllipse(x, y, 50, 50, QPen(), QBrush(Qt::black));
                circle->setPen(pen2);
-			} else {
+	    } else {
                circle = scene->addEllipse(x, y, 50, 50, QPen(), QBrush(Qt::red	));
                circle->setPen(pen);
-			}
+	    }
 			
             QGraphicsTextItem *text = scene->addText(QString::number(numbers[currentIndex]));
-		    if(numbers[currentIndex] < 10) 
-		    {
-			   text->setPos(x + 15, y + 10);
-		    }
-		    else  {
-			   text->setPos(x + 9, y + 9);
-			}			
-			text->setDefaultTextColor(Qt::white);
+	    if(numbers[currentIndex] < 10) 
+	    {
+		text->setPos(x + 15, y + 10);
+	    }
+	    else  {
+		text->setPos(x + 9, y + 9);
+	    }			
+	    text->setDefaultTextColor(Qt::white);
             QFont font("Avenir", 15, QFont::Bold);
             text->setFont(font);
-			currentIndex++;
+	    currentIndex++;
         } else {
             currentIndex = 0;
             currentRow++;
